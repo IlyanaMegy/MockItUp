@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=OwnedChanRepository::class)
+ * @ORM\Table(name="ownedchans")
  */
 class OwnedChan
 {

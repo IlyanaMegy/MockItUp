@@ -10,17 +10,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class WebsiteController extends AbstractController
 {
     /**
-     * @Route("/welcome", name="welcome_MockItUp", methods={"GET"})
+     * @Route("/", name="website_home")
      */
-    // public function index(PostRepository $postRepo)
-    //{
-        // $posts = $postRepo->findAll();
-
-        // dd($posts);
-    public function index()
+    public function index(PostRepository $postrepo): Response
     {  
-        return $this->render('website/index.html.twig', [
-            'controller_name' => 'WebsiteController',
-        ]);
+        $posts = $postrepo->findAll();
+        return $this->render('website/home.html.twig', compact('posts'));
     }
 }
