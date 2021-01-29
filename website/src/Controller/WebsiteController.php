@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Post;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,5 +17,15 @@ class WebsiteController extends AbstractController
     {  
         $posts = $postrepo->findAll();
         return $this->render('website/home.html.twig', compact('posts'));
+    }
+
+    /**
+     * @Route("/posts/{id<\d+>}", name="website_post_show")
+     */
+    #l'id est un nombre décimal
+    
+    public function show(Post $post): Response
+    {  
+        dd($post);
     }
 }
